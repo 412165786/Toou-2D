@@ -10,6 +10,10 @@ aux_source_directory(./theme SRC_4)
 add_compile_definitions(-D VERSION_IN="1.0.1")
 add_compile_definitions(-D URI_STR="Toou2D")
 
+if(${CMAKE_BUILD_TYPE} STREQUAL "Debug")
+    set(PROJECT_NAME ${PROJECT_NAME}d)
+endif()
+
 add_library(${PROJECT_NAME} SHARED ${SRC_1} ${SRC_2} ${SRC_3} ${SRC_4} ./t2d_res.qrc)
                     
 target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Quick Qt5::Widgets)
