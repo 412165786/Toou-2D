@@ -8,6 +8,8 @@ Item{
     id:toou2d_checkbox;
     width:  contentLoader.width  + padding;
     height: contentLoader.height + padding;
+    
+    signal checkedS(bool isChecked);
 
     property alias checked: toou2d_mouearea.checked;
 
@@ -68,6 +70,9 @@ Item{
         anchors.fill: parent;
         checkable: true;
         checked:   false;
+        onClicked: {
+            toou2d_checkbox.checkedS(checked);
+        }
     }
 
     TGadgetBackground{

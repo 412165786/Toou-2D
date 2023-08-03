@@ -28,14 +28,14 @@ add_custom_target(${PROJECT_NAME}_QMLFILE ALL
         copy
         ${CMAKE_CURRENT_SOURCE_DIR}/build-preset/qmldir
         $<TARGET_FILE_DIR:${PROJECT_NAME}>/${PROJECT_NAME}/qmldir   
-    # COMMAND
-    #     ${CMAKE_COMMAND} -E 
-    #     copy
-    #     ${CMAKE_CURRENT_SOURCE_DIR}/build-preset/plugin.qmltypes
-    #     $<TARGET_FILE_DIR:${PROJECT_NAME}>/${PROJECT_NAME}/plugin.qmltypes
+    COMMAND
+        ${CMAKE_COMMAND} -E 
+        copy
+        ${CMAKE_CURRENT_SOURCE_DIR}/build-preset/plugin.qmltypes
+        $<TARGET_FILE_DIR:${PROJECT_NAME}>/${PROJECT_NAME}/plugin.qmltypes
 )
 #生成plugin.qmltypes qmlplugindump xx.xx 1.0 ./ >  ./xxxx/plugin.qmltypes
-add_custom_target(${PROJECT_NAME}_PLUGIN_INFO ALL
-    qmlplugindump -nonrelocatable ${PROJECT_NAME} ${LIB_VERSION}  > $<TARGET_FILE_DIR:${PROJECT_NAME}>/${LIB_NAME}/plugin.qmltypes
-    DEPENDS ${PROJECT_NAME}
-)
+# add_custom_target(${PROJECT_NAME}_PLUGIN_INFO ALL
+#     qmlplugindump -nonrelocatable ${PROJECT_NAME} ${LIB_VERSION}  > $<TARGET_FILE_DIR:${PROJECT_NAME}>/${LIB_NAME}/plugin.qmltypes
+#     DEPENDS ${PROJECT_NAME}
+# )

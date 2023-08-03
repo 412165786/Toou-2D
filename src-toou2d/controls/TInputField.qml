@@ -11,6 +11,7 @@ Item{
     height: 38;
 
     signal cleared();
+    signal editingFinished();
 
     property alias inputing: input.focus;
 
@@ -75,6 +76,8 @@ Item{
     property alias text   : input.text;
 
     property alias qtInput: input;
+    
+    property alias validator: input.validator;
 
     state: inputing ? "inputing" : "none";
 
@@ -167,6 +170,7 @@ Item{
             return toou2d_textinput.horizontalMargin;
         }
 
+        onEditingFinished: toou2d_textinput.editingFinished()
         Keys.onReleased: input.focus = event.key !== Qt.Key_Escape
     }
 
